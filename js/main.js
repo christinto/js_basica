@@ -16,11 +16,16 @@ var listItems = document.getElementById("our-list").getElementsByTagName("li");
 // Letting js look out for incoming clicks.. click is argument and then activateItem is what we want to happen"
 for (i = 0; i < listItems.length; i++) {
 	listItems[i].addEventListener("click", activateItem);
-
+}
 	//created our own new custom function
 	function activateItem() {
 		//alert("Click detected!");
 		ourHeadline.innerHTML = this.innerHTML;
+		//just want to remove a css class from each sibling element eg first item
+		for (i = 0; i < listItems.length; i++) {
+	listItems[i].classList.remove("active");
+		//css
+		this.classList.add("active");
 	}
 
 ourButton.addEventListener("click", createNewItem);
@@ -31,7 +36,7 @@ function createNewItem() {
 	//eg...ourList.innerHTHML = "Something new"; so.. += appends extra
 	ourList.innerHTML += "<li>Algo nuevo" + newItemCounter + "</li>";
 	//Increases createNewItemCounter
-	newItemCounter++
+	newItemCounter++;
 }
 
 }
